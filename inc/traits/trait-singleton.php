@@ -7,7 +7,7 @@
 
      namespace MYWP_THEME\Inc\Traits;
 
-     trait singleton {
+     trait Singleton {
 
         protected function __consturct() {
 
@@ -22,7 +22,7 @@
             static $instance = [];
 
             $called_class = get_called_class();
-
+            
             if ( !isset($instance[ $called_class ])) {
 
                 $instance[ $called_class ] = new $called_class();
