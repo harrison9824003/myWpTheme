@@ -14,11 +14,13 @@
 
         protected function __construct() {
             Assets::get_instance();
+            Menus::get_instance();
+            Meta_Boxes::get_instance();
             $this->setup_hooks();
         }
 
         protected function setup_hooks() {
-            add_action( 'after_setup_theem', [$this, 'setup_theme']);
+            add_action( 'after_setup_theme', [$this, 'setup_theme']);
         }
 
         /**
