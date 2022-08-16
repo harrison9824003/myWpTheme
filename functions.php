@@ -14,6 +14,7 @@
    }
 
    require_once MY_DIR_PATH . '/inc/helpers/autoloader.php';
+   require_once MY_DIR_PATH . '/inc/helpers/template-tags.php';
 
    function mywp_get_theme_instance() {
       \MYWP_THEME\Inc\MYWP_THEME::get_instance();
