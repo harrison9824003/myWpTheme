@@ -29,7 +29,7 @@
                                     'featured-thumbnail',
                                     [
                                         'sizes' => '(max-width: 350px) 350px, 233px',
-                                        'class' => 'attachment-featured-large size-featured-image'
+                                        'class' => 'attachment-featured-large size-featured-image img-fluid w-100'
                                     ]
                                 );
                             ?>
@@ -50,7 +50,7 @@
             );
         } else {
             printf(
-                '<h2 class="entry-title post-card-title mb-3"><a class="text-dark" href="%1$s">%2$s</a></h2>',
+                '<h2 class="entry-title post-card-title h5 mb-1"><a class="link-secondary text-decoration-none" href="%1$s">%2$s</a></h2>',
                 esc_attr( get_the_permalink() ),
                 wp_kses_post( get_the_title() )
             );

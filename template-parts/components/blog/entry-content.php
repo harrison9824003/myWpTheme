@@ -10,7 +10,7 @@
 
 <div class="entry-content">
     <?php
-        if ( $is_single() ) {
+        if ( is_single() ) {
             the_content(
                 sprintf(
                     wp_kses(
@@ -27,13 +27,15 @@
 
             wp_link_pages(
                 [
-                    'before' => '<div class="pages-links">' . esc_html__( 'Pages:', 'mywp' ),
-                    'after' => '</div>'
+                    'before' => '<div class="pages-links"><span>' . esc_html__( '分頁:', 'mywp' ).'</span>',
+                    'after' => '</div>',
+                    'link_before' => '<span class="btn btn-outline-secondary">',
+                    'link_after' => '</span>'
                 ]
             );
         } else {
             ?>
-            <div class="truncate-4">
+            <div class="truncate-4 my-3">
                 <?php
                     mywp_the_excerpt( 200 ); 
                 ?>

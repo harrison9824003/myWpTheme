@@ -7,7 +7,7 @@
  */
 ?>
 
-<div class="entry-meta mb-3">
+<div class="entry-meta mb-1">
     <?php 
         mywp_posted_on();
         mywp_posted_by();

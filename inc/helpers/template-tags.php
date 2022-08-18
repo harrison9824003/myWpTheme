@@ -58,7 +58,7 @@
 
         $posted_on = sprintf(
             esc_html_x( '上架日期: %s', 'post date', 'mywp'),
-            '<a href="' . esc_url( $post_date_archive_permalink ) . '" rel="bookmark">' . $time_str . '</a>'
+            '<a class="link-secondary" href="' . esc_url( $post_date_archive_permalink ) . '" rel="bookmark">' . $time_str . '</a>'
         );
 
         echo '<span class="posted-on text-secondary">' . $posted_on . '</span>';
@@ -68,9 +68,63 @@
     function mywp_posted_by() {
         $by_str = sprintf(
             esc_html_x( ' 作者: %s', 'post author', 'mywp'),
-            '<sapn class="author vcard"><a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+            '<sapn class="author vcard"><a class="link-secondary" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
         );
 
         echo $by_str;
+    }
+
+    function mywp_the_excerpt( $trim_character_count = 0 ) {
+        $post_ID = get_the_ID();
+
+        if ( empty( $post_ID ) ) {
+            return null;
+        }
+
+        if ( has_excerpt() || 0 === $trim_character_count ) {
+            //the_excerpt();
+            echo esc_html(get_the_excerpt( $post_ID ));
+            return;
+        }
+
+        $excerpt = wp_html_excerpt( get_the_excerpt( $post_ID ), $trim_character_count, '[...]' );
+
+        echo $excerpt;
+    }
+
+    function mywp_excerpt_more( $more = '' ) {
+        if ( ! is_single() ) {
+            $more = sprintf(
+                '<a class="my-read-more mt-1 mb-2 btn btn-outline-secondary w-100" href="%1$s">%2$s</a>',
+                get_permalink( get_the_ID() ),
+                __( '閱讀內文', 'mywp')
+            );
+
+            return $more;
+        }
+    }
+
+    function mywp_pagination() {
+
+        $allowed_tags = [
+            'span' => [
+                'class' => []
+            ],
+            'a' => [
+                'class' => [],
+                'href' => []
+            ]
+        ];
+
+        $args = [
+            'before_page_number' => '<span class="btn btn-outline-success">',
+            'after_page_number' => '</span>',
+            //'prev_text' => 'pre',
+            //'next_text' => 'next'
+            //'prev_text' => '<i class="bi bi-caret-left-fill"></i>',
+            //'next_text' => '<i class="bi bi-caret-right-fill"></i>'
+        ];
+
+        printf( '<nav class="mywp_pagination clearfix">%s</nav>', wp_kses( paginate_links( $args ), $allowed_tags ) );
     }
 ?>

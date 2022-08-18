@@ -15,7 +15,7 @@
 
 <nav class="navbar navbar-expand-lg bg-warning sticky-top shadow">
     <div class="container">
-        <a class="navbar-brand link-secondary" href="#"><i class="bi bi-house-fill"></i></a>
+        <a class="navbar-brand link-secondary" href="<?php echo get_home_url(); ?>"><i class="bi bi-house-fill"></i></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -66,7 +66,7 @@
             <form class="d-flex col-lg-3" role="search">
             <div class="input-group">
                 <input class="form-control text-blue border-0 text-secondary" type="search" placeholder="搜尋" aria-label="搜尋">
-                <button class="btn btn-secondary" type="submit"><i class="bi bi-search"></i></button>
+                <button class="btn btn-success" type="submit"><i class="bi bi-search"></i></button>
             </div>
             </form>
         </div>

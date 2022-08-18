@@ -1,9 +1,10 @@
 <?php 
     /**
-     * single page
+     * index page
      * 
      * @package mywordpresstheme
      */
+
 
     get_header();
 ?>
@@ -29,10 +30,24 @@
 
                             <div class="row g-3">
                                 <?php 
+                                    $index = 0;
+                                    $no_of_columns = 3;
 
                                     while ( have_posts() ): the_post();
 
-                                        get_template_part( 'template-parts/content');                                        
+                                        if( 0 === $index % $no_of_columns ) {
+                                            ?>
+                                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                            <?php
+                                        }
+
+                                        get_template_part( 'template-parts/content');
+                                        $index++;
+                                        if( 0 !== $index && 0 === $index % $no_of_columns ) {
+                                            ?>
+                                            </div>
+                                            <?php
+                                        }
 
                                     endwhile;
                                 ?>
@@ -41,10 +56,12 @@
                     <?php
                 else : 
                     get_template_part( 'template-parts/content-none' );
-                endif;
-
-                // my_pagination();
+                endif;               
             ?>
+
+            <div class="d-flex justify-content-end mt-3 py-3 border-top border-bottom">
+                <?php mywp_pagination(); ?>
+            </div>
         </main>
     </div>
 

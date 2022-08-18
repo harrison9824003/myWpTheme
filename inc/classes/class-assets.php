@@ -23,16 +23,21 @@
     }
 
     public function register_styles() {
-        
 
+        wp_register_style( 'bs-sheet', get_stylesheet_directory_uri(). '/assets/src/all.css', [], filemtime(get_template_directory() . '/assets/src/all.css'), 'all' );
         wp_register_style( 'style-sheet', get_stylesheet_directory_uri(). '/style.css', [], filemtime(get_template_directory() . '/style.css'), 'all' );
-        wp_register_style( 'bs-style-sheet', "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css", [], false, 'all' );
+        wp_register_style( 'bs-icon-sheet', "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css", [], false, 'all' );
         // wp_register_style( 'google-font-style-sheet', "https://fonts.googleapis.com", [], false, 'all' );
         // wp_register_style( 'google-gstatic-style-sheet', "https://fonts.gstatic.com", [], false, 'all' );
         wp_register_style( 'googleapis-style-sheet', "https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&display=swap", [], false, 'all' );
 
+        // bootstrap
+        wp_enqueue_style( 'bs-sheet' );
+        // wp style sheet
         wp_enqueue_style( 'style-sheet' );
-        wp_enqueue_style( 'bs-style-sheet' );
+        // bs icon
+        wp_enqueue_style( 'bs-icon-sheet' );
+        // google font sheet
         wp_enqueue_style( 'googleapis-style-sheet' );
 
     }
