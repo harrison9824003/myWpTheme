@@ -43,12 +43,16 @@
     }
 
     public function register_scripts() {
-        
+        //wp_die(get_template_directory_uri() . '/assets/src/js/clock/index.js');
+        wp_register_script( 'jq', 'https://code.jquery.com/jquery-2.2.4.min.js', [], false, true);
         wp_register_script( 'bs-popper', 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js', [], false, true);
         wp_register_script( 'bs-min', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js', [], false, true);
+        wp_register_script( 'clock-js', get_template_directory_uri() . '/assets/src/js/clock/index.js', [], filemtime(get_template_directory() . '/assets/src/js/clock/index.js'), true);
 
+        wp_enqueue_script( 'jq');
         wp_enqueue_script( 'bs-popper');
         wp_enqueue_script( 'bs-min');
+        wp_enqueue_script( 'clock-js');
 
     }
 

@@ -17,7 +17,8 @@
         }
 
         protected function setup_hooks() {
-            add_action( 'widgets_init', [$this, 'register_sidebars'] );            
+            add_action( 'widgets_init', [$this, 'register_sidebars'] ); 
+            add_action( 'widgets_init', [$this, 'register_clock_widget'] );           
         }
 
         public function register_sidebars() {
@@ -45,6 +46,10 @@
                     'after_title'   => '</h4>',
                 ]
             );
+        }
+
+        public function register_clock_widget() {
+            register_widget( 'MYWP_THEME\Inc\Clock_Widget' );
         }
 
 
