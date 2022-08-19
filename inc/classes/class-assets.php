@@ -24,7 +24,7 @@
 
     public function register_styles() {
 
-        wp_register_style( 'bs-sheet', get_stylesheet_directory_uri(). '/assets/src/all.css', [], filemtime(get_template_directory() . '/assets/src/all.css'), 'all' );
+        wp_register_style( 'bs-sheet', MY_BUILD_CSS_URI . '/main.css', [], filemtime(get_template_directory() . '/assets/src/all.css'), 'all' );
         wp_register_style( 'style-sheet', get_stylesheet_directory_uri(). '/style.css', [], filemtime(get_template_directory() . '/style.css'), 'all' );
         wp_register_style( 'bs-icon-sheet', "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css", [], false, 'all' );
         // wp_register_style( 'google-font-style-sheet', "https://fonts.googleapis.com", [], false, 'all' );

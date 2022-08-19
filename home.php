@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-sm-12">
                         <?php 
-                            if ( have_posts() ) :
+                            if ( have_posts() ) :                                
                                 ?>
                                     <div class="container">
                                         <?php
@@ -35,6 +35,7 @@
                                             <?php 
                                                 $index = 0;
                                                 $no_of_columns = 3;
+                                                $total_posts = $wp_query->post_count;
 
                                                 while ( have_posts() ): the_post();
 
@@ -46,7 +47,7 @@
 
                                                     get_template_part( 'template-parts/content');
                                                     $index++;
-                                                    if( 0 !== $index && 0 === $index % $no_of_columns ) {
+                                                    if( ( 0 !== $index && 0 === $index % $no_of_columns ) || $total_posts === $index ) {
                                                         ?>
                                                         </div>
                                                         <?php
