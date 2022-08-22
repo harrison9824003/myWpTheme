@@ -41,6 +41,21 @@
       define( 'MY_BUILD_CSS_DIR_PATH', untrailingslashit( get_template_directory() ) . '/assets/build/css' );
    }
 
+   // 熱門文章分類
+   if ( ! defined( 'MY_HOT_CATEGORY_ID') ) {
+      define( 'MY_HOT_CATEGORY_ID', '1');
+   }
+
+   // 全站公告
+   if ( ! defined( 'MY_ANNOUNCEMENT_ID') ) {
+      define( 'MY_ANNOUNCEMENT_ID', '4');
+   }
+
+   // 網站 banner
+   if ( ! defined( 'MY_BANNER_ID') ) {
+      define( 'MY_BANNER_ID', '6');
+   }
+
    require_once MY_DIR_PATH . '/inc/helpers/autoloader.php';
    require_once MY_DIR_PATH . '/inc/helpers/template-tags.php';
 

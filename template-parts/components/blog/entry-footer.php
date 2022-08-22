@@ -25,7 +25,7 @@
         <?php 
             foreach ( $article_terms as $key => $article_term ) {
                 ?>
-                    <a href="<?php echo esc_html( get_term_link( $article_term ) ); ?>" class="entry-footer-link btn btn-sm btn-success">
+                    <a href="<?php echo esc_html( get_term_link( $article_term ) ); ?>" class="entry-footer-link my-1 btn btn-sm btn-success">
                         <?php echo esc_html( $article_term->name ); ?>
                     </a>
                 <?php

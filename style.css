@@ -21,3 +21,9 @@
 .page-numbers:hover {
     color: #198754;
 }
+
+.banner {
+    height: 500px;
+    background-size: cover;
+    background-position: center center;
+}
